@@ -175,9 +175,12 @@ img{max-width:100%;display:block}
 
 .accordion .acc{background:var(--surface-strong);border:1px solid var(--border);border-radius:var(--radius-2);margin:10px 0;overflow:hidden;box-shadow:var(--shadow-1)}
 .acc__btn{width:100%;text-align:left;padding:14px 16px;background:none;border:none;color:#06363f;font-weight:700}
-.acc__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
-.acc[aria-expanded="true"] .acc__panel{grid-template-rows:1fr}
-.acc__panel > *{overflow:hidden;padding:0 16px 14px;color:#385e63}
+.acc__btn{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.acc__btn::after{content:"\25BC"; font-size:12px; opacity:.7; transition:transform .25s ease}
+.acc[aria-expanded="true"] .acc__btn::after{ transform:rotate(-180deg) }
+.acc__panel{overflow:hidden;max-height:0;transition:max-height .35s ease}
+.acc__panel > *{padding:6px 16px 14px;color:#385e63;line-height:1.5}
+.acc[aria-expanded="true"] .acc__panel{ /* JS sets inline max-height for exact height; this is a fallback */ max-height:1000px }
 
 .disclaimer{color:#b3e0e6;font-size:12px;margin-top:12px;opacity:.8}
 
@@ -196,3 +199,12 @@ img{max-width:100%;display:block}
 /* Chart */
 .chart{border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:#072e3a}
 .chart__frame{width:100%;height:420px;border:0;display:block;background:#031a21}
+
+/* Game */
+.game-wrap{position:relative;border:1px solid var(--border);border-radius:var(--radius-2);overflow:hidden;background:var(--surface);box-shadow:var(--shadow-1)}
+.game-wrap canvas{display:block;width:100%;height:auto}
+.game-wrap{min-height:480px}
+.game-ui{position:absolute;left:0;right:0;top:10px;display:flex;justify-content:space-between;gap:10px;padding:0 10px;pointer-events:none}
+.game-ui .btn{pointer-events:auto}
+.game-loading{position:absolute;inset:0;display:grid;place-items:center;background:rgba(255,255,255,.7);color:var(--text);font-weight:700}
+.game-hint{margin-top:10px;color:#5e8a90;font-size:12px}

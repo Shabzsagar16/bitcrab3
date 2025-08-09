@@ -44,14 +44,39 @@ export default function HeroClient(){
     },{threshold:0.15});
     $$('.reveal').forEach(el=>io.observe(el));
 
-    // Accordion
-    $$('.acc').forEach(acc=>{
+    // Accordion with measured max-height to avoid cutoff
+    const accs = $$('.acc');
+    accs.forEach(acc=>{
       const btn = $('.acc__btn', acc as HTMLElement);
-      const panel = $('.acc__panel', acc as HTMLElement);
-      btn?.addEventListener('click', ()=>{
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        (acc as HTMLElement).setAttribute('aria-expanded', String(!expanded));
+      const panel = $('.acc__panel', acc as HTMLElement) as HTMLElement | null;
+      if (!btn || !panel) return;
+      // Ensure collapsed state
+      panel.style.maxHeight = '0px';
+      btn.addEventListener('click', ()=>{
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        // close others
+        accs.forEach(a=>{
+          if(a!==acc){
+            a.setAttribute('aria-expanded','false');
+            const p = $('.acc__panel', a) as HTMLElement | null; const b = $('.acc__btn', a) as HTMLElement | null;
+            if(p){ p.style.maxHeight = '0px'; }
+            if(b){ b.setAttribute('aria-expanded','false'); }
+          }
+        });
+        if(isOpen){
+          (acc as HTMLElement).setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-expanded','false');
+          panel.style.maxHeight = '0px';
+        } else {
+          (acc as HTMLElement).setAttribute('aria-expanded','true');
+          btn.setAttribute('aria-expanded','true');
+          // set to content height
+          requestAnimationFrame(()=>{
+            const inner = panel.firstElementChild as HTMLElement | null;
+            const targetH = inner ? inner.scrollHeight : panel.scrollHeight;
+            panel.style.maxHeight = targetH + 'px';
+          });
+        }
       });
     });
 
@@ -64,11 +89,11 @@ export default function HeroClient(){
       r: 1 + Math.random()*3,
       s: .5 + Math.random()*1.5
     }));
-    function resize(){ if(!canvas) return; canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    function draw(){ if(!canvas||!ctx) return; ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle='rgba(255,255,255,.18)';
+    const resize = ()=>{ if(!canvas) return; canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+    const draw = ()=>{ if(!canvas||!ctx) return; ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle='rgba(255,255,255,.18)';
       for(const b of bubbles){ ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill(); b.y-=b.s; b.x+=Math.sin(b.y/50)*0.2; if(b.y<-20){ b.y=canvas.height+Math.random()*50; b.x=Math.random()*canvas.width; } }
       requestAnimationFrame(draw);
-    }
+    };
     window.addEventListener('resize', resize);
     resize(); draw();
 
@@ -83,7 +108,7 @@ export default function HeroClient(){
       const statsIO = new IntersectionObserver((entries)=>{
         for(const e of entries){ if(!e.isIntersecting) continue; const el = e.target as HTMLElement; statsIO.unobserve(el);
           const target = Number(el.getAttribute('data-count')||'0'); const start=performance.now(); const dur=1400;
-          function tick(t:number){ const p=Math.min(1,(t-start)/dur); const eased=1-Math.pow(1-p,3); const val=Math.floor(target*eased); el.textContent=fmt.format(val); if(p<1) requestAnimationFrame(tick); }
+          const tick = (t:number)=>{ const p=Math.min(1,(t-start)/dur); const eased=1-Math.pow(1-p,3); const val=Math.floor(target*eased); el.textContent=fmt.format(val); if(p<1) requestAnimationFrame(tick); };
           requestAnimationFrame(tick);
         }
       }, {threshold:0.4});
@@ -101,8 +126,8 @@ export default function HeroClient(){
 
     // Shell burst
     const burstLayer = document.querySelector('.burst');
-    function shellBurst(x:number,y:number,count=10){ if(!burstLayer) return; for(let i=0;i<count;i++){ const s=document.createElement('div'); s.className='burst__shell'; const img=document.createElement('img'); img.src='/assets/svg/shell.svg'; img.alt=''; s.appendChild(img); s.setAttribute('style',`left:${x}px;top:${y}px`); burstLayer.appendChild(s);
-      const ang=Math.random()*Math.PI*2; const dist=40+Math.random()*90; const tx=Math.cos(ang)*dist; const ty=Math.sin(ang)*dist; requestAnimationFrame(()=>{ s.style.opacity='1'; s.style.transform=`translate(${tx}px, ${ty}px) rotate(${Math.random()*120-60}deg)`; }); setTimeout(()=>{ s.style.opacity='0'; s.style.transform += ' scale(.8)'; }, 550+Math.random()*200); setTimeout(()=>s.remove(), 1000); } }
+    const shellBurst = (x:number,y:number,count=10)=>{ if(!burstLayer) return; for(let i=0;i<count;i++){ const s=document.createElement('div'); s.className='burst__shell'; const img=document.createElement('img'); img.src='/assets/svg/shell.svg'; img.alt=''; s.appendChild(img); s.setAttribute('style',`left:${x}px;top:${y}px`); (burstLayer as HTMLElement).appendChild(s);
+      const ang=Math.random()*Math.PI*2; const dist=40+Math.random()*90; const tx=Math.cos(ang)*dist; const ty=Math.sin(ang)*dist; requestAnimationFrame(()=>{ s.style.opacity='1'; s.style.transform=`translate(${tx}px, ${ty}px) rotate(${Math.random()*120-60}deg)`; }); setTimeout(()=>{ s.style.opacity='0'; s.style.transform += ' scale(.8)'; }, 550+Math.random()*200); setTimeout(()=>s.remove(), 1000); } };
     document.addEventListener('click', (e)=>{ const t=e.target as HTMLElement; const buy=t.closest('a.btn--primary'); const copy=t.closest('#copy-contract'); if(buy||copy){ shellBurst(e.clientX, e.clientY, buy?12:8); } }, {passive:true});
 
     // Parallax tilt
@@ -115,15 +140,29 @@ export default function HeroClient(){
     const header = document.querySelector('.site-header') as HTMLElement | null;
     const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     const headerH = ()=> (header?.offsetHeight || 0) + 12;
-    const easeInOutCubic = (t:number)=> t<.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
-    const animateScrollTo = (targetY:number, duration=650)=>{ const startY = window.scrollY || window.pageYOffset; const delta = targetY-startY; const start=performance.now(); function step(ts:number){ const p=Math.min(1,(ts-start)/duration); const eased=easeInOutCubic(p); window.scrollTo(0, startY + delta*eased); if(p<1) requestAnimationFrame(step);} requestAnimationFrame(step); };
+  const easeInOutCubic = (t:number)=> t<.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+  const animateScrollTo = (targetY:number, duration=650)=>{ const startY = window.scrollY || window.pageYOffset; const delta = targetY-startY; const start=performance.now(); const step = (ts:number)=>{ const p=Math.min(1,(ts-start)/duration); const eased=easeInOutCubic(p); window.scrollTo(0, startY + delta*eased); if(p<1) requestAnimationFrame(step); }; requestAnimationFrame(step); };
     const onDocClick = (e: MouseEvent)=>{ const a=(e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null; if(!a) return; const href=a.getAttribute('href'); if(!href || href==='#') return; const id=href.slice(1); const target=document.getElementById(id); if(!target) return; e.preventDefault(); const navMenu=document.getElementById('nav-menu'); if(navMenu?.classList.contains('open')){ navMenu.classList.remove('open'); const tgl=document.querySelector('.nav__toggle') as HTMLElement | null; tgl?.setAttribute('aria-expanded','false'); } const y = target.getBoundingClientRect().top + window.scrollY - headerH(); if(prefersReduce.matches){ window.scrollTo({top:y,left:0}); } else { animateScrollTo(y, 700); } history.pushState(null,'',href); };
     document.addEventListener('click', onDocClick, {passive:false});
+
+    // Recalculate open FAQ panel heights on resize
+    const recalcAccordionHeights = ()=>{
+      $$('.acc').forEach(a=>{
+        if(a.getAttribute('aria-expanded')==='true'){
+          const p = $('.acc__panel', a) as HTMLElement | null; if(!p) return;
+          const inner = p.firstElementChild as HTMLElement | null;
+          const h = inner ? inner.scrollHeight : p.scrollHeight;
+          p.style.maxHeight = h + 'px';
+        }
+      });
+    };
+    window.addEventListener('resize', recalcAccordionHeights);
 
     return ()=>{
       document.removeEventListener('click', clickRipple as any);
       document.removeEventListener('click', onDocClick as any);
-      window.removeEventListener('resize', resize as any);
+  window.removeEventListener('resize', resize as any);
+  window.removeEventListener('resize', recalcAccordionHeights as any);
     };
   }, []);
 

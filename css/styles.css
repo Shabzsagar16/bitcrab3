@@ -173,9 +173,12 @@ img{max-width:100%;display:block}
 
 .accordion .acc{background:var(--surface-strong);border:1px solid var(--border);border-radius:var(--radius-2);margin:10px 0;overflow:hidden;box-shadow:var(--shadow-1)}
 .acc__btn{width:100%;text-align:left;padding:14px 16px;background:none;border:none;color:#06363f;font-weight:700}
-.acc__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
-.acc[aria-expanded="true"] .acc__panel{grid-template-rows:1fr}
-.acc__panel > *{overflow:hidden;padding:0 16px 14px;color:#385e63}
+.acc__btn{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.acc__btn::after{content:"\25BC"; font-size:12px; opacity:.7; transition:transform .25s ease}
+.acc[aria-expanded="true"] .acc__btn::after{ transform:rotate(-180deg) }
+.acc__panel{overflow:hidden;max-height:0;transition:max-height .35s ease}
+.acc__panel > *{padding:6px 16px 14px;color:#385e63;line-height:1.5}
+.acc[aria-expanded="true"] .acc__panel{ /* fallback if no JS measurement available */ max-height:1000px }
 
 .disclaimer{color:#b3e0e6;font-size:12px;margin-top:12px;opacity:.8}
 

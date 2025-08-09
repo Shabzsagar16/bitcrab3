@@ -22,6 +22,7 @@ export default function Page(){
             <li><a href="#chart">Chart</a></li>
             <li><a href="#docs">Docs</a></li>
             <li><a href="#faq">FAQ</a></li>
+            <li><a className="nav-external" href="/game">Game</a></li>
             <li><a href="#community" className="pill">Community</a></li>
           </ul>
         </nav>
@@ -51,6 +52,7 @@ export default function Page(){
               <a className="btn btn--primary" href="#how-to-buy">Buy $CRAB</a>
               <a className="btn btn--ghost" href="#chart">Chart</a>
               <a className="btn btn--ghost" href="#docs">Docs</a>
+              <a className="btn btn--primary" href="/game" aria-label="Play the Bitcrab beach game">Play Game</a>
             </div>
             <div className="contract">
               <span className="label">Contract (Solana):</span>
@@ -193,7 +195,6 @@ export default function Page(){
             <a className="social" href="https://solscan.io/token/DzJL3RfctCxZsC72SvvRtcpud7nSMKPNajZ2nHCFY1cu" target="_blank" rel="noopener noreferrer" aria-label="Solana / Solscan"><img src="/assets/svg/solana.svg" alt="Solana icon"/></a>
             <a className="social" href="#" aria-label="X (Twitter)"><img src="/assets/svg/x.svg" alt="X icon"/></a>
             <a className="social" href="#" aria-label="Telegram"><img src="/assets/svg/telegram.svg" alt="Telegram icon"/></a>
-            <a className="social" href="#" aria-label="Discord"><img src="/assets/svg/discord.svg" alt="Discord icon"/></a>
           </div>
         </div>
       </section>
@@ -227,7 +228,7 @@ export default function Page(){
             <div className="acc">
               <button className="acc__btn" id="btn-faq1" aria-controls="faq1" aria-expanded="false">Is $CRAB a serious project?</button>
               <div className="acc__panel" id="faq1" role="region" aria-labelledby="btn-faq1">
-                <p>It's a serious meme. The community is everything. No promises of profit; we're here for good vibes and good memes.</p>
+                <p>It&#39;s a serious meme. The community is everything. No promises of profit; we&#39;re here for good vibes and good memes.</p>
               </div>
             </div>
             <div className="acc">
@@ -264,6 +265,7 @@ export default function Page(){
             <a href="#how-to-buy">How to Buy</a>
             <a href="#roadmap">Roadmap</a>
             <a href="#faq">FAQ</a>
+            <a href="/game">Game</a>
           </div>
           <div className="foot__copy">© <span id="year"></span> Bitcrab. Made with 🦀 + 🏖</div>
         </div>
