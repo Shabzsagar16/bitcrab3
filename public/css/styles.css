@@ -1,46 +1,48 @@
+/* served via public to keep existing absolute paths working */
+/* Copied from /css/styles.css */
 /* Bitcrab ($CRAB) — styles */
 :root{
-  /* Beach theme palette */
-  --sky-1:#9bdcf9;  /* light sky */
-  --sky-2:#6cc4f1;  /* mid sky */
-  --ocean:#20c6d3;  /* turquoise */
-  --ocean-2:#0fb0c1;/* deeper turquoise */
-  --sand:#f8e3b0;   /* warm sand */
-  --sun:#ffd166;    /* sun */
-  --text:#06363f;   /* dark teal */
-  --muted:#2b7a84;  /* muted teal */
-  --accent:#ef6b4a; /* coral */
-  --ink:#063441;
-  /* Professional UI tokens */
-  --radius-1:12px;
-  --radius-2:16px;
-  --surface: rgba(255,255,255,.85);
-  --surface-strong: rgba(255,255,255,.95);
-  --border: rgba(8,70,80,.08);
-  --shadow-1: 0 4px 20px rgba(0,0,0,.08);
-  --shadow-2: 0 10px 30px rgba(0,0,0,.12);
+	/* Beach theme palette */
+	--sky-1:#9bdcf9;  /* light sky */
+	--sky-2:#6cc4f1;  /* mid sky */
+	--ocean:#20c6d3;  /* turquoise */
+	--ocean-2:#0fb0c1;/* deeper turquoise */
+	--sand:#f8e3b0;   /* warm sand */
+	--sun:#ffd166;    /* sun */
+	--text:#06363f;   /* dark teal */
+	--muted:#2b7a84;  /* muted teal */
+	--accent:#ef6b4a; /* coral */
+	--ink:#063441;
+	/* Professional UI tokens */
+	--radius-1:12px;
+	--radius-2:16px;
+	--surface: rgba(255,255,255,.85);
+	--surface-strong: rgba(255,255,255,.95);
+	--border: rgba(8,70,80,.08);
+	--shadow-1: 0 4px 20px rgba(0,0,0,.08);
+	--shadow-2: 0 10px 30px rgba(0,0,0,.12);
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;
-  font-family:"Urbanist", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color:var(--text);
-  background:linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sand) 130%);
-  overflow-x:hidden;
+	margin:0;
+	font-family:"Urbanist", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+	color:var(--text);
+	background:linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sand) 130%);
+	overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 .container{width:min(1100px, 92vw);margin-inline:auto}
 
 /* Header */
 .site-header{
-  position:sticky;top:0;z-index:50;
-  -webkit-backdrop-filter:saturate(1.1) blur(8px);
-  backdrop-filter:saturate(1.1) blur(8px);
-  background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.3));
-  border-bottom:1px solid rgba(6,54,63,.12);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:10px 16px;
+	position:sticky;top:0;z-index:50;
+	-webkit-backdrop-filter:saturate(1.1) blur(8px);
+	backdrop-filter:saturate(1.1) blur(8px);
+	background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.3));
+	border-bottom:1px solid rgba(6,54,63,.12);
+	display:flex;align-items:center;justify-content:space-between;
+	padding:10px 16px;
 }
 .brand{display:flex;align-items:center;gap:10px;font-family:Fredoka, system-ui; font-weight:700; color:var(--text); text-decoration:none;letter-spacing:.5px;transition:transform .25s ease}
 .brand:hover{transform:translateY(-1px)}
@@ -56,9 +58,9 @@ img{max-width:100%;display:block}
 .nav__menu .pill{background:#f26d5b;color:#fff;border:none}
 
 @media (max-width:800px){
-  .nav__toggle{display:block}
-  .nav__menu{position:absolute; right:10px; top:58px; flex-direction:column; background:var(--surface-strong); color:var(--text); border:1px solid var(--border); padding:10px; border-radius:var(--radius-2); display:none; box-shadow:var(--shadow-2)}
-  .nav__menu.open{display:flex}
+	.nav__toggle{display:block}
+	.nav__menu{position:absolute; right:10px; top:58px; flex-direction:column; background:var(--surface-strong); color:var(--text); border:1px solid var(--border); padding:10px; border-radius:var(--radius-2); display:none; box-shadow:var(--shadow-2)}
+	.nav__menu.open{display:flex}
 }
 
 /* Accessibility focus styles */
@@ -103,7 +105,7 @@ img{max-width:100%;display:block}
 .btn .ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.6);animation:ripple .6s ease-out;pointer-events:none;mix-blend-mode:overlay}
 @keyframes ripple{to{transform:scale(16);opacity:0}}
 @media (prefers-reduced-motion: reduce){
-  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+	*{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
 }
 
 /* Shell burst container */
@@ -125,8 +127,8 @@ img{max-width:100%;display:block}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 @media (max-width:980px){
-  .hero__content{grid-template-columns:1fr}
-  .hero__right{order:-1}
+	.hero__content{grid-template-columns:1fr}
+	.hero__right{order:-1}
 }
 
 /* Sections */
