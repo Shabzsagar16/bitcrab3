@@ -1,4 +1,5 @@
 import HeroClient from './components/HeroClient';
+import HomeWallet from './components/HomeWallet';
 
 export default function Page(){
   return (
@@ -12,20 +13,23 @@ export default function Page(){
           </picture>
           <span>$CRAB</span>
         </a>
-        <nav className="nav" aria-label="Main">
-          <button className="nav__toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
-          <ul id="nav-menu" className="nav__menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#tokenomics">Tokenomics</a></li>
-            <li><a href="#how-to-buy">How to Buy</a></li>
-            <li><a href="#roadmap">Roadmap</a></li>
-            <li><a href="#chart">Chart</a></li>
-            <li><a href="#docs">Docs</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a className="nav-external" href="/game">Game</a></li>
-            <li><a href="#community" className="pill">Community</a></li>
-          </ul>
-        </nav>
+        <div className="header-actions">
+          <nav className="nav" aria-label="Main">
+            <button className="nav__toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+            <ul id="nav-menu" className="nav__menu">
+              <li><a href="#about">About</a></li>
+              <li><a href="#tokenomics">Tokenomics</a></li>
+              <li><a href="#how-to-buy">How to Buy</a></li>
+              <li><a href="#roadmap">Roadmap</a></li>
+              <li><a href="#chart">Chart</a></li>
+              <li><a href="#docs">Docs</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a className="nav-external" href="/game">Game</a></li>
+              <li><a href="#community" className="pill">Community</a></li>
+            </ul>
+          </nav>
+          <HomeWallet />
+        </div>
       </header>
 
       <section className="hero" aria-label="Bitcrab hero section">

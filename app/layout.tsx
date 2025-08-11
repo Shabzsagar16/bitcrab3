@@ -3,7 +3,8 @@ export const metadata = {
   description: 'Bitcrab ($CRAB) — the beach-loving meme coin. Pinch the dip, ride the tide!',
 };
 
-import './globals.css';
+// import '@solana/wallet-adapter-react-ui/styles.css'
+import './globals.css'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
