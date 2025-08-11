@@ -1,39 +1,37 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
-// Use the lightweight, pure-canvas game for best performance
-const GameCanvas = dynamic(() => import("../components/GameCanvas"), { ssr: false });
 
-export default function GamePage(){
+const PixiCrabRunner = dynamic(() => import("../components/PixiCrabRunner"), { ssr: false });
+
+export default function PixiPage(){
   return (
-    <main id="game">
+    <main id="pixi">
       <header className="site-header">
-  <Link className="brand" href="/" aria-label="Bitcrab home">
+        <Link className="brand" href="/" aria-label="Bitcrab home">
           <picture className="brand__img">
             <source srcSet="/assets/img/bitcrab.png" type="image/png" />
             <img src="/assets/svg/logo.svg" alt="Bitcrab logo" width={36} height={36} />
           </picture>
           <span>$CRAB</span>
-  </Link>
+        </Link>
         <nav className="nav" aria-label="Main">
           <ul className="nav__menu">
             <li><Link href="/">Home</Link></li>
             <li><a href="#how-to-play">How to play</a></li>
-            <li><Link href="/bubbles">Bubbles</Link></li>
-            <li><Link href="/pixi">PixiJS</Link></li>
           </ul>
         </nav>
       </header>
 
       <section className="section section--sand">
         <div className="container">
-          <h1>Bitcrab 3‑Lane Runner</h1>
-          <p id="how-to-play">Swipe Up/Down or use Arrow/W/S to change lanes. Collect shells, avoid urchins. P to pause, R to restart.</p>
+          <h1>Bitcrab PixiJS Runner</h1>
+          <p id="how-to-play">Tap upper/lower half or use W/S (↑/↓) to switch lanes. Collect shells, avoid urchins. P to pause, R to restart.</p>
         </div>
       </section>
 
-    <section className="section">
+      <section className="section">
         <div className="container">
-      <GameCanvas />
+          <PixiCrabRunner />
         </div>
       </section>
 
@@ -48,7 +46,7 @@ export default function GamePage(){
           </div>
           <div className="foot__links">
             <Link href="/">Home</Link>
-            <Link href="/game">Game</Link>
+            <Link href="/game">Runner</Link>
             <Link href="/bubbles">Bubbles</Link>
             <Link href="/pixi">PixiJS</Link>
             <a className="social" href="https://twitter.com/0x_bitcrab" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><img src="/assets/svg/x.svg" alt="Twitter icon" width="22" height="22"/></a>

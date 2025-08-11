@@ -23,6 +23,8 @@ export default function Page(){
             <li><a href="#docs">Docs</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a className="nav-external" href="/game">Game</a></li>
+            <li><a className="nav-external" href="/bubbles">Bubbles</a></li>
+            <li><a className="nav-external" href="/pixi">PixiJS</a></li>
             <li><a href="#community" className="pill">Community</a></li>
           </ul>
         </nav>
@@ -52,7 +54,9 @@ export default function Page(){
               <a className="btn btn--primary" href="#how-to-buy">Buy $CRAB</a>
               <a className="btn btn--ghost" href="#chart">Chart</a>
               <a className="btn btn--ghost" href="#docs">Docs</a>
-              <a className="btn btn--primary" href="/game" aria-label="Play the Bitcrab beach game">Play Game</a>
+              <a className="btn btn--primary" href="/game" aria-label="Play the Bitcrab runner game">Play Runner</a>
+              <a className="btn btn--ghost" href="/bubbles" aria-label="Play the Bitcrab bubble shooter">Bubbles</a>
+              <a className="btn btn--ghost" href="/pixi" aria-label="Play the PixiJS runner">PixiJS</a>
             </div>
             <div className="contract">
               <span className="label">Contract (Solana):</span>
@@ -106,22 +110,29 @@ export default function Page(){
       <section id="tokenomics" className="section reveal">
         <div className="container">
           <h2>Tokenomics</h2>
-          <div className="tokenomics">
-            <div className="tok tok--1">
-              <h3>Community</h3>
-              <p>90% to the community through launch liquidity. No presale. No team dumpage.</p>
+          <div className="tokenomics-cards">
+            <div className="tok-card tok-supply">
+              <img src="/assets/svg/shell.svg" alt="Supply" width={36} height={36} />
+              <div className="tok-label">Total Supply</div>
+              <div className="tok-value">100,000,000</div>
             </div>
-            <div className="tok tok--2">
-              <h3>LP & Treasury</h3>
-              <p>10% locked LP + transparent treasury for listings, bounties, and memes.</p>
+            <div className="tok-card tok-community">
+              <img src="/assets/svg/crab.svg" alt="Community" width={36} height={36} />
+              <div className="tok-label">Community & Airdrops</div>
+              <div className="tok-value">28%</div>
+              <div className="tok-desc">Stealth + Grow Airdrops, DAO, Optics</div>
             </div>
-            <div className="tok tok--3">
-              <h3>Taxes</h3>
-              <p>0/0 forever. Crabs don't like hidden claws.</p>
+            <div className="tok-card tok-liquidity">
+              <img src="/assets/svg/wave.svg" alt="Liquidity" width={36} height={36} />
+              <div className="tok-label">Liquidity & LP</div>
+              <div className="tok-value">22%</div>
+              <div className="tok-desc">Seed LP, LP Reserve</div>
             </div>
-            <div className="tok tok--4">
-              <h3>Security</h3>
-              <p>Renounced contract. Liquidity locked. Community multisig treasury.</p>
+            <div className="tok-card tok-treasury">
+              <img src="/assets/svg/palm.svg" alt="Treasury" width={36} height={36} />
+              <div className="tok-label">Treasury & Marketing</div>
+              <div className="tok-value">25%</div>
+              <div className="tok-desc">Treasury, Marketing, Team</div>
             </div>
           </div>
         </div>
@@ -193,8 +204,8 @@ export default function Page(){
           <p>Crabs pinch together. Follow and say hi:</p>
           <div className="socials">
             <a className="social" href="https://solscan.io/token/DzJL3RfctCxZsC72SvvRtcpud7nSMKPNajZ2nHCFY1cu" target="_blank" rel="noopener noreferrer" aria-label="Solana / Solscan"><img src="/assets/svg/solana.svg" alt="Solana icon"/></a>
-            <a className="social" href="#" aria-label="X (Twitter)"><img src="/assets/svg/x.svg" alt="X icon"/></a>
-            <a className="social" href="#" aria-label="Telegram"><img src="/assets/svg/telegram.svg" alt="Telegram icon"/></a>
+            <a className="social" href="https://twitter.com/0x_bitcrab" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><img src="/assets/svg/x.svg" alt="Twitter icon"/></a>
+            <a className="social" href="https://t.me/bitcrab0x" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/svg/telegram.svg" alt="Telegram icon"/></a>
           </div>
         </div>
       </section>
@@ -266,6 +277,10 @@ export default function Page(){
             <a href="#roadmap">Roadmap</a>
             <a href="#faq">FAQ</a>
             <a href="/game">Game</a>
+            <a href="/bubbles">Bubbles</a>
+            <a href="/pixi">PixiJS</a>
+            <a className="social" href="https://twitter.com/0x_bitcrab" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><img src="/assets/svg/x.svg" alt="Twitter icon" width="22" height="22"/></a>
+            <a className="social" href="https://t.me/bitcrab0x" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/svg/telegram.svg" alt="Telegram icon" width="22" height="22"/></a>
           </div>
           <div className="foot__copy">© <span id="year"></span> Bitcrab. Made with 🦀 + 🏖</div>
         </div>
