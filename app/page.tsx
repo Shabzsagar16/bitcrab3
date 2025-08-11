@@ -141,6 +141,9 @@ export default function Page(){
               <div className="tok-desc">Treasury, Marketing, Team</div>
             </div>
           </div>
+          <div className="tokenomics-chart">
+            <img src={LINKS.tokenomicsChart} alt="Bitcrab tokenomics allocation chart" />
+          </div>
         </div>
       </section>
 
@@ -168,9 +171,9 @@ export default function Page(){
               <h3>Swap for $CRAB</h3>
               <p>
                 Use a Solana DEX like 
-                <a href="https://jup.ag/swap" target="_blank" rel="noopener noreferrer">Jupiter</a>, 
-                <a href="https://www.orca.so/" target="_blank" rel="noopener noreferrer">Orca</a>, or 
-                <a href="https://raydium.io/swap/" target="_blank" rel="noopener noreferrer">Raydium</a>.
+                <a href="https://jup.ag/swap" target="_blank" rel="noopener noreferrer"> Jupiter</a>, 
+                <a href="https://www.orca.so/" target="_blank" rel="noopener noreferrer"> Orca</a>, or 
+                <a href="https://raydium.io/swap/" target="_blank" rel="noopener noreferrer"> Raydium</a>.
                 Paste the $CRAB contract from above to avoid imposters.
               </p>
             </li>
@@ -240,11 +243,24 @@ export default function Page(){
   <section id="docs" className="section reveal">
         <div className="container">
           <h2>Docs</h2>
-          <p>Technical docs, audits, and links. Replace with your real resources.</p>
+          <p>Technical docs, audits, and resources.</p>
           <ul className="list">
-            <li><a href="#">Whitepaper (soon)</a></li>
-            <li><a href="#">Audit (soon)</a></li>
-            <li><a href="#">Brand kit</a></li>
+            <li>
+              <a href={LINKS.whitepaper} target="_blank" rel="noopener noreferrer" aria-label="Whitepaper PDF">
+                <span>Whitepaper (PDF)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Audit report (coming soon)">
+                <span>Audit</span>
+                <span className="badge badge--soon">Soon</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Brand kit">
+                <span>Brand kit</span>
+              </a>
+            </li>
           </ul>
         </div>
       </section>
@@ -269,6 +285,42 @@ export default function Page(){
               <button className="acc__btn" id="btn-faq3" aria-controls="faq3" aria-expanded="false">Any taxes or shady claws?</button>
               <div className="acc__panel" id="faq3" role="region" aria-labelledby="btn-faq3">
                 <p>0/0 tax. Contract renounced. Liquidity locked. Clarity over claws.</p>
+              </div>
+            </div>
+            <div className="acc">
+              <button className="acc__btn" id="btn-faq4" aria-controls="faq4" aria-expanded="false">How do I buy $CRAB?</button>
+              <div className="acc__panel" id="faq4" role="region" aria-labelledby="btn-faq4">
+                <p>Install a Solana wallet like <a href={LINKS.phantom} target="_blank" rel="noopener noreferrer">Phantom</a> or <a href={LINKS.solflare} target="_blank" rel="noopener noreferrer">Solflare</a>, fund with SOL, then swap for {BRAND.ticker} on <a href={LINKS.jupiter} target="_blank" rel="noopener noreferrer">Jupiter</a>, <a href={LINKS.orca} target="_blank" rel="noopener noreferrer">Orca</a>, or <a href={LINKS.raydium} target="_blank" rel="noopener noreferrer">Raydium</a>. You can also connect via WalletConnect using the button in the header.</p>
+              </div>
+            </div>
+            <div className="acc">
+              <button className="acc__btn" id="btn-faq5" aria-controls="faq5" aria-expanded="false">What is the official contract address?</button>
+              <div className="acc__panel" id="faq5" role="region" aria-labelledby="btn-faq5">
+                <p>The official contract address is <code>{CONTRACT.address}</code>. Always verify on <a href={LINKS.solscanToken(CONTRACT.address)} target="_blank" rel="noopener noreferrer">Solscan</a> before swapping.</p>
+              </div>
+            </div>
+            <div className="acc">
+              <button className="acc__btn" id="btn-faq6" aria-controls="faq6" aria-expanded="false">Which wallets are supported?</button>
+              <div className="acc__panel" id="faq6" role="region" aria-labelledby="btn-faq6">
+                <p>We support popular Solana wallets like Phantom and Solflare, plus many others via WalletConnect. Use the “{TEXT.wallet.connect}” button in the header to choose and connect.</p>
+              </div>
+            </div>
+            <div className="acc">
+              <button className="acc__btn" id="btn-faq7" aria-controls="faq7" aria-expanded="false">Where can I read the whitepaper?</button>
+              <div className="acc__panel" id="faq7" role="region" aria-labelledby="btn-faq7">
+                <p>Read the <a href={LINKS.whitepaper} target="_blank" rel="noopener noreferrer">Bitcrab Whitepaper (PDF)</a> in the Docs section.</p>
+              </div>
+            </div>
+            <div className="acc">
+              <button className="acc__btn" id="btn-faq8" aria-controls="faq8" aria-expanded="false">How many tokens exist?</button>
+              <div className="acc__panel" id="faq8" role="region" aria-labelledby="btn-faq8">
+                <p>Total supply is 1,000,000,000 {BRAND.ticker}. See the Tokenomics section and chart for the current breakdown.</p>
+              </div>
+            </div>
+            <div className="acc">
+              <button className="acc__btn" id="btn-faq9" aria-controls="faq9" aria-expanded="false">How can I stay updated and get support?</button>
+              <div className="acc__panel" id="faq9" role="region" aria-labelledby="btn-faq9">
+                <p>Follow us on <a href={LINKS.twitter} target="_blank" rel="noopener noreferrer">Twitter</a> and join the <a href={LINKS.telegram} target="_blank" rel="noopener noreferrer">Telegram</a>. Beware of DMs and imposters—verify links and the contract address.</p>
               </div>
             </div>
           </div>

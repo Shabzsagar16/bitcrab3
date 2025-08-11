@@ -54,6 +54,9 @@
 .tok-treasury {
 	border-color: #ef6b4a;
 }
+/* Tokenomics Chart */
+.tokenomics-chart{margin-top:20px;border:1px solid var(--border);border-radius:var(--radius-2);overflow:hidden;background:var(--surface);box-shadow:var(--shadow-1)}
+.tokenomics-chart img{display:block;width:100%;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.06))}
 /* Tokenomics Table */
 .tokenomics-table-card {
 	max-width: 600px;
@@ -302,3 +305,16 @@ img{max-width:100%;display:block}
 .game-ui .btn{pointer-events:auto}
 .game-loading{position:absolute;inset:0;display:grid;place-items:center;background:rgba(255,255,255,.7);color:var(--text);font-weight:700}
 .game-hint{margin-top:10px;color:#5e8a90;font-size:12px}
+
+/* Docs section */
+#docs .container > p{color:#385e63;opacity:.9;margin-top:-4px}
+#docs .list{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:14px;padding:0}
+#docs .list li{list-style:none}
+#docs .list a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius-2);background:var(--surface);box-shadow:var(--shadow-1);text-decoration:none;color:var(--text);transition:transform .18s ease, box-shadow .2s ease, border-color .2s ease}
+#docs .list a:hover{transform:translateY(-2px);box-shadow:var(--shadow-2);border-color:rgba(8,70,80,.16)}
+#docs .list a::before{content:"";width:24px;height:24px;border-radius:8px;background:linear-gradient(180deg, rgba(14,165,184,.12), rgba(14,165,184,.06));box-shadow:inset 0 0 0 1px rgba(6,54,63,.12);}
+#docs .list a::after{content:"›";font-size:18px;color:#6aa9b1}
+
+/* Badges */
+.badge{display:inline-grid;place-items:center;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.2px;border:1px solid rgba(6,54,63,.12)}
+.badge--soon{background:rgba(255,183,107,.4);border-color:rgba(255,183,107,.5);color:#6a3d00}

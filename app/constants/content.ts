@@ -15,6 +15,8 @@ export const LINKS = {
   raydium: 'https://raydium.io/swap/',
   twitter: 'https://twitter.com/0x_bitcrab',
   telegram: 'https://t.me/bitcrab0x',
+  whitepaper: '/assets/docs/bitcrab-whitepaper.pdf',
+  tokenomicsChart: '/assets/img/bitcrab_tokenomics_chart.png',
   solscanToken: (addr: string) => `https://solscan.io/token/${addr}`,
 }
 
