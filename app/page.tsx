@@ -23,8 +23,6 @@ export default function Page(){
             <li><a href="#docs">Docs</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a className="nav-external" href="/game">Game</a></li>
-            <li><a className="nav-external" href="/bubbles">Bubbles</a></li>
-            <li><a className="nav-external" href="/pixi">PixiJS</a></li>
             <li><a href="#community" className="pill">Community</a></li>
           </ul>
         </nav>
@@ -55,8 +53,6 @@ export default function Page(){
               <a className="btn btn--ghost" href="#chart">Chart</a>
               <a className="btn btn--ghost" href="#docs">Docs</a>
               <a className="btn btn--primary" href="/game" aria-label="Play the Bitcrab runner game">Play Runner</a>
-              <a className="btn btn--ghost" href="/bubbles" aria-label="Play the Bitcrab bubble shooter">Bubbles</a>
-              <a className="btn btn--ghost" href="/pixi" aria-label="Play the PixiJS runner">PixiJS</a>
             </div>
             <div className="contract">
               <span className="label">Contract (Solana):</span>
@@ -277,8 +273,6 @@ export default function Page(){
             <a href="#roadmap">Roadmap</a>
             <a href="#faq">FAQ</a>
             <a href="/game">Game</a>
-            <a href="/bubbles">Bubbles</a>
-            <a href="/pixi">PixiJS</a>
             <a className="social" href="https://twitter.com/0x_bitcrab" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><img src="/assets/svg/x.svg" alt="Twitter icon" width="22" height="22"/></a>
             <a className="social" href="https://t.me/bitcrab0x" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/svg/telegram.svg" alt="Telegram icon" width="22" height="22"/></a>
           </div>

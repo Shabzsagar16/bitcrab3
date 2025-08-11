@@ -18,8 +18,6 @@ export default function GamePage(){
           <ul className="nav__menu">
             <li><Link href="/">Home</Link></li>
             <li><a href="#how-to-play">How to play</a></li>
-            <li><Link href="/bubbles">Bubbles</Link></li>
-            <li><Link href="/pixi">PixiJS</Link></li>
           </ul>
         </nav>
       </header>
@@ -49,8 +47,6 @@ export default function GamePage(){
           <div className="foot__links">
             <Link href="/">Home</Link>
             <Link href="/game">Game</Link>
-            <Link href="/bubbles">Bubbles</Link>
-            <Link href="/pixi">PixiJS</Link>
             <a className="social" href="https://twitter.com/0x_bitcrab" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><img src="/assets/svg/x.svg" alt="Twitter icon" width="22" height="22"/></a>
             <a className="social" href="https://t.me/bitcrab0x" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/svg/telegram.svg" alt="Telegram icon" width="22" height="22"/></a>
           </div>
