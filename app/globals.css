@@ -34,7 +34,7 @@ html, body { height: 100%; }
 .wallet-item__name { font-weight: 700; color: #06363f; }
 
 /* Wallet button theme (scoped) */
-.wallet-btn { display:inline-flex; align-items:center; gap:8px; border-radius: var(--radius-2); padding: 10px 14px; font-weight: 800; border: 1px solid rgba(6,54,63,.18); box-shadow: var(--shadow-1); }
+.wallet-btn { display:inline-flex; align-items:center; gap:8px; border-radius: var(--radius-2); padding: 10px 14px; font-weight: 800; border: 1px solid rgba(6,54,63,.18); box-shadow: var(--shadow-1); cursor: pointer; }
 .wallet-btn--connect { background: linear-gradient(135deg, #ffb569, #f26d5b); color:#3a1f02; border-color: transparent; }
 .wallet-btn--connect:hover { transform: translateY(-1px); }
 .wallet-btn--connected { background: rgba(255,255,255,.7); color: var(--text); }

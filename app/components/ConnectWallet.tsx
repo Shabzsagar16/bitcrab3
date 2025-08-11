@@ -2,6 +2,7 @@
 'use client'
 
 import { useWallet } from '@solana/wallet-adapter-react'
+import { TEXT } from '../constants/content'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 function truncate(addr: string) {
@@ -13,7 +14,7 @@ export default function ConnectWallet() {
   const [open, setOpen] = useState(false)
   const panelRef = useRef<HTMLDivElement | null>(null)
 
-  const label = useMemo(() => (publicKey ? truncate(publicKey.toBase58()) : 'Connect Wallet'), [publicKey])
+  const label = useMemo(() => (publicKey ? truncate(publicKey.toBase58()) : TEXT.wallet.connect), [publicKey])
 
   const onClick = useCallback(() => {
     if (publicKey) return
@@ -55,7 +56,7 @@ export default function ConnectWallet() {
         <div className="wallet__connected">
           <button
             className="btn wallet-btn wallet-btn--connected"
-            aria-label="Disconnect wallet"
+            aria-label={TEXT.wallet.disconnect}
             onClick={onDisconnect}
             title={wallet?.adapter?.name}
           >
@@ -65,16 +66,16 @@ export default function ConnectWallet() {
           <span className="sr-only" aria-live="polite">Wallet connected</span>
         </div>
       ) : (
-        <button className="btn wallet-btn wallet-btn--connect" onClick={onClick} aria-label="Connect wallet">
-          <span className="wallet-label">Connect Wallet</span>
+        <button className="btn wallet-btn wallet-btn--connect" onClick={onClick} aria-label={TEXT.wallet.connect}>
+          <span className="wallet-label">{TEXT.wallet.connect}</span>
         </button>
       )}
       {open && !publicKey && (
-        <div className="wallet-modal" role="dialog" aria-modal="true" aria-label="Choose a wallet">
+  <div className="wallet-modal" role="dialog" aria-modal="true" aria-label={TEXT.wallet.modalTitle}>
           <div className="wallet-modal__backdrop" onClick={() => setOpen(false)} />
           <div className="wallet-modal__panel" ref={panelRef}>
             <div className="wallet-modal__head">
-              <strong>Connect a wallet</strong>
+              <strong>{TEXT.wallet.modalTitle}</strong>
               <button className="wallet-modal__close" aria-label="Close" onClick={() => setOpen(false)}>×</button>
             </div>
             <ul className="wallet-list" role="list">
@@ -83,7 +84,7 @@ export default function ConnectWallet() {
                 const name: string = adapter?.name || ''
                 const lname = String(name).toLowerCase()
                 const brand = lname.includes('phantom') ? 'phantom' : lname.includes('solflare') ? 'solflare' : lname.includes('walletconnect') ? 'walletconnect' : 'generic'
-                const hint = lname.includes('phantom') ? 'Popular' : lname.includes('solflare') ? 'Trusted' : lname.includes('walletconnect') ? 'Multi-wallet' : 'Wallet'
+                const hint = lname.includes('phantom') ? TEXT.wallet.hints.popular : lname.includes('solflare') ? TEXT.wallet.hints.trusted : lname.includes('walletconnect') ? TEXT.wallet.hints.multi : TEXT.wallet.hints.wallet
                 const iconSrc = (adapter && (adapter.icon?.toString ? adapter.icon.toString() : adapter.icon)) || ''
                 return (
                   <li key={name} role="listitem">
@@ -97,7 +98,7 @@ export default function ConnectWallet() {
                         <span className="wallet-item__name">{name}</span>
                         <span className="wallet-item__hint">{hint}</span>
                       </span>
-                      <span className="wallet-item__chev" aria-hidden>
+                        <span className="wallet-item__chev" aria-hidden="true">
                         ›
                       </span>
                     </button>
@@ -106,7 +107,7 @@ export default function ConnectWallet() {
               })}
             </ul>
             <div className="wallet-modal__foot">
-              <span className="wallet-powered">On Solana</span>
+              <span className="wallet-powered">{TEXT.wallet.footerBadge}</span>
             </div>
           </div>
         </div>
