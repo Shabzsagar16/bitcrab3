@@ -4,6 +4,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Enable static HTML export for static hosting (e.g., Namecheap)
+  output: 'export',
   webpack: (config) => {
     // Avoid bundling server-only deps pulled by WalletConnect transitive deps
     config.resolve.fallback = {
