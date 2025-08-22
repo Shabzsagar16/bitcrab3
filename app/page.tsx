@@ -235,7 +235,7 @@ export default function Page(){
           <h2>Live Chart</h2>
           <p>Embed your favorite DEX chart here. Replace the iframe src with your token pair.</p>
           <div className="chart">
-            <iframe className="chart__frame" title="DEX Chart" src="about:blank"></iframe>
+            <iframe className="chart__frame" title="DEX Chart" src="https://dexscreener.com/solana/9mb8fzoukphwihs6kntnly8ps7wanonqfwrokdczze95?embed=1&theme=dark&trades=0&info=0"></iframe>
           </div>
         </div>
       </section>
