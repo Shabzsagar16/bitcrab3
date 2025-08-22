@@ -7,9 +7,30 @@ function truncate(addr: string, start = 9, end = 8) {
   return `${addr.slice(0, start)}...${addr.slice(-end)}`
 }
 
+// Structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bitcrab",
+  "alternateName": "$CRAB",
+  "url": "https://bitcrab.io",
+  "logo": "https://bitcrab.io/assets/img/bitcrab.png",
+  "description": "Bitcrab ($CRAB) is a community-driven meme coin on Solana blockchain with fair launch, zero taxes, and locked liquidity.",
+  "sameAs": [
+    "https://twitter.com/0x_bitcrab",
+    "https://t.me/bitcrab0x",
+    "https://solscan.io/token/DzJL3RfctCxZsC72SvvRtcpud7nSMKPNajZ2nHCFY1cu"
+  ]
+};
+
 export default function Page(){
   return (
-    <main id="top">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <main id="top">
       <div className="burst" aria-hidden="true"></div>
       <header className="site-header">
         <a className="brand" href="#top" aria-label={TEXT.aria.home(BRAND.name)}>
@@ -59,7 +80,7 @@ export default function Page(){
             <h1>{BRAND.name} <span className="accent">{BRAND.ticker}</span></h1>
             <p className="tagline">{TEXT.hero.tagline}</p>
             <div className="cta">
-              <a className="btn btn--primary" href="#how-to-buy">Buy {BRAND.ticker}</a>
+              <a className="btn btn--primary" href="https://dexscreener.com/solana/9mb8fzoukphwihs6kntnly8ps7wanonqfwrokdczze95" target="_blank" rel="noopener noreferrer">Buy {BRAND.ticker}</a>
               <a className="btn btn--ghost" href="#chart">{TEXT.nav.chart}</a>
               <a className="btn btn--ghost" href="#docs">{TEXT.nav.docs}</a>
               <a className="btn btn--primary" href="/game" aria-label="Play the Bitcrab runner game">Play Runner</a>
@@ -163,26 +184,48 @@ export default function Page(){
             </li>
             <li>
               <span className="step">2</span>
-              <h3>Fund it</h3>
-              <p>Buy or bridge <strong>SOL</strong> to your wallet address. SOL pays for swaps and network fees.</p>
+              <h3>Fund your wallet with SOL</h3>
+              <p>Buy or transfer <strong>SOL</strong> to your wallet. You'll need SOL to pay for transaction fees and to swap for $CRAB.</p>
             </li>
             <li>
               <span className="step">3</span>
-              <h3>Swap for $CRAB</h3>
+              <h3>Visit Dexscreener</h3>
               <p>
-                Use a Solana DEX like 
-                <a href="https://jup.ag/swap" target="_blank" rel="noopener noreferrer"> Jupiter</a>, 
-                <a href="https://www.orca.so/" target="_blank" rel="noopener noreferrer"> Orca</a>, or 
-                <a href="https://raydium.io/swap/" target="_blank" rel="noopener noreferrer"> Raydium</a>.
-                Paste the $CRAB contract from above to avoid imposters.
+                Click the <strong>"Buy $CRAB"</strong> button above or go directly to 
+                <a href="https://dexscreener.com/solana/9mb8fzoukphwihs6kntnly8ps7wanonqfwrokdczze95" target="_blank" rel="noopener noreferrer"> our Dexscreener page</a>.
               </p>
             </li>
             <li>
               <span className="step">4</span>
-              <h3>Join the beach</h3>
-              <p>Follow our socials, vote on memes, and help steer the tide.</p>
+              <h3>Connect your wallet</h3>
+              <p>
+                On Dexscreener, click <strong>"Connect Wallet"</strong> and select your Solana wallet (Phantom, Solflare, etc.).
+                Approve the connection when prompted.
+              </p>
+            </li>
+            <li>
+              <span className="step">5</span>
+              <h3>Swap SOL for $CRAB</h3>
+              <p>
+                In the trading interface, enter the amount of SOL you want to swap for $CRAB. 
+                Review the trade details and click <strong>"Swap"</strong>. Confirm the transaction in your wallet.
+              </p>
+            </li>
+            <li>
+              <span className="step">6</span>
+              <h3>Welcome to the beach! 🦀</h3>
+              <p>
+                Your $CRAB tokens will appear in your wallet. Join our 
+                <a href={LINKS.telegram} target="_blank" rel="noopener noreferrer"> Telegram</a> and 
+                <a href={LINKS.twitter} target="_blank" rel="noopener noreferrer"> Twitter</a> communities!
+              </p>
             </li>
           </ol>
+          <div className="buy-cta">
+            <a className="btn btn--primary btn--large" href="https://dexscreener.com/solana/9mb8fzoukphwihs6kntnly8ps7wanonqfwrokdczze95" target="_blank" rel="noopener noreferrer">
+              Buy $CRAB on Dexscreener →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -355,5 +398,45 @@ export default function Page(){
 
       <HeroClient />
     </main>
+
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Bitcrab",
+          "alternateName": "$CRAB",
+          "url": "https://bitcrab.io",
+          "description": "Bitcrab ($CRAB) — The Beach-Loving Meme Coin on Solana. Join the crab revolution with our innovative tokenomics and fun community-driven ecosystem.",
+          "keywords": "Bitcrab, $CRAB, CRAB token, Solana meme coin, cryptocurrency, DeFi, beach theme crypto",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://bitcrab.io/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Bitcrab",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://bitcrab.io/assets/img/bitcrab.png"
+            }
+          },
+          "mainEntity": {
+            "@type": "FinancialProduct",
+            "name": "Bitcrab Token",
+            "alternateName": "$CRAB",
+            "description": "A community-driven meme coin on the Solana blockchain with beach-themed tokenomics and innovative features.",
+            "category": "Cryptocurrency",
+            "provider": {
+              "@type": "Organization",
+              "name": "Bitcrab"
+            }
+          }
+        })
+      }}
+    />
+    </>
   );
 }

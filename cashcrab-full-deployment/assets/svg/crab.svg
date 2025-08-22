@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff7f6e"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="rgba(0,0,0,.4)"/>
+    </filter>
+  </defs>
+  <g transform="translate(0,20)">
+    <ellipse cx="320" cy="360" rx="180" ry="24" fill="rgba(0,0,0,.25)"/>
+    <g filter="url(#shadow)">
+      <ellipse cx="320" cy="250" rx="170" ry="110" fill="url(#shell)"/>
+      <g fill="#ff9b8c">
+        <circle cx="240" cy="220" r="20"/>
+        <circle cx="400" cy="220" r="20"/>
+      </g>
+      <g stroke="#8b1d1d" stroke-width="10" stroke-linecap="round" fill="none">
+        <path d="M150 210c-40-40-40-70-20-80s40 20 60 60"/>
+        <path d="M490 210c40-40 40-70 20-80s-40 20-60 60"/>
+      </g>
+      <g>
+        <circle cx="280" cy="230" r="22" fill="#fff"/>
+        <circle cx="360" cy="230" r="22" fill="#fff"/>
+        <circle cx="280" cy="230" r="10" fill="#111"/>
+        <circle cx="360" cy="230" r="10" fill="#111"/>
+      </g>
+      <path d="M270 290c30 40 70 40 100 0" stroke="#7a0f0f" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <g fill="url(#shell)">
+        <ellipse cx="200" cy="300" rx="40" ry="30"/>
+        <ellipse cx="440" cy="300" rx="40" ry="30"/>
+      </g>
+      <g fill="#ef4444">
+        <ellipse cx="150" cy="320" rx="30" ry="22"/>
+        <ellipse cx="490" cy="320" rx="30" ry="22"/>
+      </g>
+    </g>
+  </g>
+</svg>

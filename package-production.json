@@ -1,0 +1,16 @@
+{
+  "name": "bitcrab3",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=production node server.js"
+  },
+  "engines": {
+    "node": "20.19.3"
+  },
+  "dependencies": {
+    "next": "^14.2.31",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
